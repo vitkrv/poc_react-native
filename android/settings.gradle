@@ -1,0 +1,3 @@
+rootProject.name = 'POC_CASAPP_Android'
+
+include ':app'
