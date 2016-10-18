@@ -16,6 +16,10 @@ var styles = StyleSheet.create({
 		flexDirection: 'row'
 	},
 	name: {
+		position: "absolute",
+		bottom: 0,
+		right: 0,
+		left: 0,
 		fontSize: 21,
 		height: 40,
 		color: 'white',
