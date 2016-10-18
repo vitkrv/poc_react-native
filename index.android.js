@@ -1,53 +1,42 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+import React from 'react';
 
-import React, { Component } from 'react';
+import Showcase from './App/Components/Showcase';
+
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+	AppRegistry,
+	StyleSheet,
+	Text,
+	Navigator,
+	View
 } from 'react-native';
 
-export default class POC_CASAPP_Android extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+	container: {
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: '#F5FCFF',
+	}
 });
+
+export default class POC_CASAPP_Android extends React.Component {
+	render() {
+		return (
+			<Navigator
+				initialRoute={{id: 'showcase'}}
+				renderScene={this.navigatorRenderScene}
+			/>
+		);
+	}
+
+	navigatorRenderScene(route, navigator) {
+		_navigator = navigator;
+		switch (route.id) {
+			case 'showcase':
+				return (<Showcase navigator={navigator} title="Showcase"/>)
+		}
+	}
+}
 
 AppRegistry.registerComponent('POC_CASAPP_Android', () => POC_CASAPP_Android);
