@@ -9,21 +9,26 @@ import {
 	ScrollView,
 	StyleSheet,
 	Image,
-	TouchableHighlight
+	TouchableHighlight,
+	Dimensions
 } from 'react-native';
+
+const width = Dimensions.get('window').width;
 
 var styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		flexDirection: 'column',
-		backgroundColor: 'powderblue'
+		flexDirection: 'row',
+		flexWrap: 'wrap',
+		backgroundColor: 'whitesmoke'
 	},
 	item: {
-		flex: 0.5,
+		backgroundColor: 'red',
+		width: (width / 2) - 15,
 		height: 200,
-		margin: 10,
-		borderWidth: 2,
-		borderColor: 'steelblue'
+		marginLeft: 10,
+		marginTop: 10,
+		borderWidth: 1,
+		borderColor: 'snow'
 	},
 	itemText: {
 		fontSize: 20

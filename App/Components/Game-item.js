@@ -20,8 +20,8 @@ var styles = StyleSheet.create({
 		bottom: 0,
 		right: 0,
 		left: 0,
-		fontSize: 21,
-		height: 40,
+		fontSize: 20,
+		height: 30,
 		color: 'white',
 		backgroundColor: 'black'
 	},
@@ -37,7 +37,7 @@ export default class GameItem extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Image style={styles.image} resizeMode={Image.resizeMode.cover} source={{uri: "http://placehold.it/1500x500"}}>
+				<Image style={styles.image} resizeMode={Image.resizeMode.cover} source={{uri: "http://placehold.it/500x500"}}>
 					<Text style={styles.name}> {this.props.gameInfo.name} </Text>
 				</Image>
 			</View>
