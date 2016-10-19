@@ -1,5 +1,5 @@
 import React from 'react';
-import api from '../Utils/api';
+import mockGames from '../Utils/mockGames.json';
 import GameItem from './Game-item';
 import ImageSlider from 'react-native-image-slider';
 
@@ -53,7 +53,7 @@ export default class Showcase extends React.Component {
 		super(props);
 		this.ds = new ListView.DataSource({rowHasChanged: (row1, row2) => row1.code !== row2.code});
 		this.state = {
-			dataSource: this.ds.cloneWithRows([]),
+			dataSource: this.ds.cloneWithRows(mockGames.slice(0, 10)),
 			isLoading: false,
 			error: false,
 			position: 0,
@@ -76,13 +76,15 @@ export default class Showcase extends React.Component {
 	renderItem(item) {
 		return (
 			<View style={styles.item}>
-				<GameItem gameInfo={item}></GameItem>
+				<GameItem gameInfo={item} navigator={this.props.navigator}/>
 			</View>
 		)
 	}
 
 	render() {
-		api.getGames().then((res) => this.setState({dataSource: this.ds.cloneWithRows(res.slice(0, 20))}));
+		/*api.getGames().then((res) => {
+			this.setState({dataSource: this.ds.cloneWithRows(res.slice(0, 5))})
+		});*/
 		return (
 			<ScrollView>
 				<View style={styles.stickyHeader}>
@@ -99,7 +101,7 @@ export default class Showcase extends React.Component {
 					<ListView
 						contentContainerStyle={styles.container}
 						dataSource={this.state.dataSource}
-						renderRow={this.renderItem}
+						renderRow={this.renderItem.bind(this)}
 						enableEmptySections={true}/>
 				</ScrollView>
 			</ScrollView>

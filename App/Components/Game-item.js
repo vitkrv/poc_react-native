@@ -7,7 +7,7 @@ import {
 	ListView,
 	ScrollView,
 	StyleSheet,
-	TouchableHighlight
+	TouchableOpacity
 } from 'react-native';
 
 var styles = StyleSheet.create({
@@ -33,14 +33,22 @@ var styles = StyleSheet.create({
 });
 
 export default class GameItem extends React.Component {
+	onItemClick() {
+		this.props.navigator.push({
+			id: 'game-details',
+			title: "Game details",
+			gameInfo: this.props.gameInfo
+		})
+	}
 
 	render() {
 		return (
-			<View style={styles.container}>
-				<Image style={styles.image} resizeMode={Image.resizeMode.cover} source={{uri: "http://placehold.it/500x500"}}>
+			<TouchableOpacity style={styles.container}
+												onPress={this.onItemClick.bind(this)}>
+				<Image style={styles.image} resizeMode={Image.resizeMode.cover} source={{uri: "http://placehold.it/200x200"}}>
 					<Text style={styles.name}> {this.props.gameInfo.name} </Text>
 				</Image>
-			</View>
+			</TouchableOpacity>
 		)
 	}
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Showcase from './App/Components/Showcase';
+import GameDetails from './App/Components/Game-details';
 
 import {
 	AppRegistry,
@@ -9,16 +10,6 @@ import {
 	Navigator,
 	View
 } from 'react-native';
-
-
-const styles = StyleSheet.create({
-	container: {
-		flexDirection: 'row',
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: '#F5FCFF',
-	}
-});
 
 export default class POC_CASAPP_Android extends React.Component {
 	render() {
@@ -34,7 +25,9 @@ export default class POC_CASAPP_Android extends React.Component {
 		_navigator = navigator;
 		switch (route.id) {
 			case 'showcase':
-				return (<Showcase navigator={navigator} title="Showcase"/>)
+				return (<Showcase navigator={navigator} title={route.title}/>);
+			case 'game-details':
+				return (<GameDetails navigator={navigator} gameInfo={route.gameInfo}/>);
 		}
 	}
 }
