@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Showcase from './App/Components/Showcase';
 import GameDetails from './App/Components/Game-details';
 
@@ -7,7 +9,7 @@ import {
 	Navigator
 } from 'react-native';
 
-export default class POC_CASAPP_iOS extends Component {
+export default class POC_CASAPP_iOS extends React.Component {
 	render() {
 		return (
 			<Navigator
