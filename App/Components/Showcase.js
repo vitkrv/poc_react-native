@@ -53,7 +53,7 @@ export default class Showcase extends React.Component {
 		super(props);
 		this.ds = new ListView.DataSource({rowHasChanged: (row1, row2) => row1.code !== row2.code});
 		this.state = {
-			dataSource: this.ds.cloneWithRows(mockGames.slice(0, 10)),
+			dataSource: this.ds.cloneWithRows(mockGames.slice(0, 40)),
 			isLoading: false,
 			error: false,
 			position: 0,
