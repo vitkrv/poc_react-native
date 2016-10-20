@@ -6,9 +6,7 @@ import GameDetails from './App/Components/Game-details';
 import {
 	AppRegistry,
 	StyleSheet,
-	Text,
-	Navigator,
-	View
+	Navigator
 } from 'react-native';
 
 export default class POC_CASAPP_Android extends React.Component {
@@ -25,7 +23,7 @@ export default class POC_CASAPP_Android extends React.Component {
 		_navigator = navigator;
 		switch (route.id) {
 			case 'showcase':
-				return (<Showcase navigator={navigator} title={route.title}/>);
+				return (<Showcase navigator={navigator}/>);
 			case 'game-details':
 				return (<GameDetails navigator={navigator} gameInfo={route.gameInfo}/>);
 		}
